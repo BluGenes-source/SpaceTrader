@@ -1,90 +1,60 @@
-# Space Trader Game
+# Planet Map Editor
 
-A game where the player travels a map trading at ports, populating planets, and developing resources.
+## Overview
+The Planet Map Editor is a customizable tool that allows users to create and modify planets by adjusting various parameters such as terrain, size, atmosphere, and additional features. This project is designed to provide an intuitive interface for users to fully customize their planetary creations.
 
-## The Center of the Universe
+## Features
+- **Terrain Editor**: Customize the terrain type and texture of the planet.
+- **Size Editor**: Adjust the size of the planet, including diameter and scale.
+- **Atmosphere Editor**: Modify the atmosphere's composition, pressure, and color.
+- **Features Editor**: Add or remove features such as mountains, rivers, and vegetation.
 
-At the center of the universe is one map sector that all players start from. This sector has services from the federation such as:
-- Making colonists available
-- Purchasing ships
-- Purchasing resources
-- Some limited social services
-- Maintaining a wanted list and bounty system
-- A banking system
-- Maybe news too...
+## Project Structure
+```
+planet-map-editor
+├── src
+│   ├── __init__.py
+│   ├── main.py
+│   ├── editor
+│   │   ├── __init__.py
+│   │   ├── terrain_editor.py
+│   │   ├── size_editor.py
+│   │   ├── atmosphere_editor.py
+│   │   └── features_editor.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── planet.py
+│   │   └── terrain.py
+│   └── ui
+│       ├── __init__.py
+│       ├── main_window.py
+│       └── editor_panels.py
+├── requirements.txt
+└── README.md
+```
 
-### Map System
+## Installation
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory:
+   ```
+   cd planet-map-editor
+   ```
+3. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-The map of space is just a 2D grid of 1000 x 1000 locations, but traverse using a six-sided hex grid.
+## Usage
+To start the application, run the following command:
+```
+python src/main.py
+```
 
-From sector one, generate paths that connect:
-- Some that dead end
-- Some one way in
-- Sectors can connect via sectors that allow direction: either in, out, in and out
-- A sector can be a dead end
+## Contributing
+Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
 
-Fill the map to a percentage of paths that connect.
-
-## Game Interface
-
-### Federation View
-The player sees a screen for the main sector, or federation view with options for this sector. Maybe a picture of the star base.
-
-### Ship Controls
-Once a player boards his ship, his controls are what the ship can do while either moving, or docked:
-
-**If moving:**
-- Direction, speed, etc.
-
-**Combat:**
-- Weapons Control: special weapons, fighters, defense, attack, survey
-
-**Trading:**
-- Buy or sell
-- If negative, steal, etc.
-
-### Planet Controls
-When a player is on a planet, controls:
-- Population
-- Production
-- Warehousing
-- Defense
-- Assets
-- Banking
-
-## The Planets
-
-The planets include:
-- An Earth-like planet
-- A desert-like planet
-- An ocean-like planet
-- A mountainous planet
-- A volcanic planet
-
-Each with more or less quantities of resources.
-
-### Planet Resources
-
-Each planet will have as resources in percentage:
-- Petroleum
-- Livestock for food
-- Organics
-- Equipment
-- Housing
-- Precious metals
-- Water
-- Air
-- Population size
-- Population max size
-- Population happiness
-- Population health
-
-Each planet will have factories for production of the elements of the game.
-
-## Technical Implementation
-
-I am thinking the game to be a combination of:
-- **wxWidgets** for the UI
-- **Python server** for the game mechanics
-
-Ultimately being played as a localhost game using a web browser.
+## License
+This project is licensed under the MIT License. See the LICENSE file for more details.
